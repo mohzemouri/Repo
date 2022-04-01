@@ -1,0 +1,171 @@
+
+# +--------+
+# | System |
+# +--------+
+
+alias shutdown='sudo shutdown now'
+alias restart='sudo reboot'
+alias suspend='sudo pm-suspend'
+alias open='xdg-open &> /dev/null'
+
+alias bigf= 'find / -xdev -type f -size +500M'  # display "big" files > 500M
+
+alias lvl='./cmd'
+
+# +-----+
+# | X11 |
+# +-----+
+
+alias xpropc='xprop | grep WM_CLASS' # display xprop class
+
+# +-----+
+# | Zsh |
+# +-----+
+
+alias ezsh="$EDITOR $ZDOTDIR"
+alias szsh="source $ZDOTDIR/.zshrc"
+alias szshenv="source $ZDOTDIR/.zshenv"
+
+# +--------+
+# | Neovim |
+# +--------+
+
+alias envim='nvim $NVIMDOTDIR'
+alias snvim='sudoedit'
+alias dvim="nvim --clean"                               # nvim with default config
+alias nvimc='rm -I $NVIMDOTDIR/swap/*'                  # clean nvim swap file
+alias nvimcu='rm -I $NVIMDOTDIR/undo/*'              # clean the vim undo
+alias nviml='nvim -w $NVIMDOTDIR/vimlog "$@"'           # log the keystrokes 
+
+# +----+
+# | ls |
+# +----+
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+# +----+
+# | cp |
+# +----+
+
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -i'
+
+
+# +------+
+# | grep |
+# +------+
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# +------+
+# | ping |
+# +------+
+
+alias pg='ping 8.8.8.8'
+
+# +--------+
+# |   apt  |
+# +--------+
+
+alias apti='sudo apt install'               # install
+alias apts='apt search'                     # search
+alias aptu='sudo apt update'                # update
+alias aptug='sudo apt upgrade'              # upgrade
+
+
+# +--------+
+# | Golang |
+# +--------+
+
+alias gob="go build"
+alias gor="go run" 
+alias goc="go clean -i"
+alias gta="go test ./..."       # go test all
+alias gia="go install ./..."    # go install all
+
+
+# +---------+
+# | netstat |
+# +---------+
+
+alias port="netstat -tulpn | grep"
+
+# +-----+
+# | Git |
+# +-----+
+
+alias gs='git status'
+alias ga='git add'
+alias gp='git push'
+alias gpo='git push origin'
+alias gtd='git tag --delete'
+alias gtdr='git tag --delete origin'
+alias gr='git branch -r'
+alias gplo='git pull origin'
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gl='git log'
+alias gr='git remote'
+alias grs='git remote show'
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
+alias gclean="git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d" # Delete local branch merged with master
+alias gblog="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"                                                             # git log for each branches
+alias gsub="git submodule update --remote"                                                        # pull submodules
+
+# +--------+
+# | docker |
+# +--------+
+alias docki="docker inspect"                                                    # display the information about a container
+alias docke='docker exec -t -i'                                                 # going inside a container
+alias dockDE='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'   # delete every containers / images
+alias dockstats='docker stats $(docker ps -q)'                                  # stats on images
+alias dockls='docker ps'                                                        # list docker containers
+alias dockimg='docker images'                                                   # list images installed
+alias dockprune='docker system prune -a'                                        # prune everything
+alias dockceu='docker-compose run --rm -u $(id -u):$(id -g)'                    # run as the host user
+alias dockce='docker-compose run --rm'
+
+# +----------------+
+# | docker-compose |
+# +----------------+
+
+alias dc="docker-compose"
+alias docker-compose-dev='docker-compose -f docker-compose-dev.yml' # run a different config file than the default one
+
+# +----------+
+# | personal |
+# +----------+
+
+# Folders
+alias prj="$HOME/Projects"
+alias doc="$HOME/Documents"
+alias dow="$HOME/Downloads"
+alias dot="$HOME/Dotfiles"
+
+
+# +---------+
+# | scripts |
+# +---------+
+
+alias ddg="duckduckgo"
+alias wiki="wikipedia"
+
+# +---------+
+# |  links  |
+# +---------+
+
+alias ghub="open https://github.com"
+alias dhub="open https://hub.docker.com"
+
+#341f38
+

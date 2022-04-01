@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# wget -qO - http://example.com/script.sh | bash
+
+# When we use the -q option, we are telling wget to quietly download the file by not printing its verbose output.
+# The option O is used to save the content of script.sh to a file. The trailing hyphen (the one between -qO and http://) is to tell wget to direct this content to /dev/stdout. Anything directed to /dev/stdout is displayed right on the terminal, that’s the reason why the content of script.sh is never written to disk.
+# This trailing hyphen enables us to pipe the content of script.sh to the bash command which actually executes it. If we use wget without a trailing hyphen and capital O, then get will save the content of the file to disk with the filename script.sh. This is because wget is actually used to download files in Linux.
+# On the other hand, curl will never download files by default. Although, we’ve just seen how we can use it that way.
+
+aptInstall(){
+    sudo apt update
+    sudo apt install -y bspwm
+}
+
+pacmanInstall(){
+    sudo pacman -Sy
+    sudo pacman -S --noconfirm bspwm
+}
+
+# Test which package manager, then run install function
+[ -e /usr/bin/apt ] && aptInstall
+[ -e /usr/bin/pacman ] && pacmanInstall
+
+echo "Linking config folders..."
+
