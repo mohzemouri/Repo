@@ -9,17 +9,17 @@
 
 aptInstall(){
     sudo apt update
-    sudo apt install -y bspwm
+    xargs sudo apt install -y < packages.list
 }
 
 pacmanInstall(){
     sudo pacman -Sy
-    sudo pacman -S --noconfirm bspwm
+    sudo pacman -S - < packages.list
 }
 
 # Test which package manager, then run install function
 [ -e /usr/bin/apt ] && aptInstall
 [ -e /usr/bin/pacman ] && pacmanInstall
 
-echo "Linking config folders..."
+#echo "Linking config folders..."
 
